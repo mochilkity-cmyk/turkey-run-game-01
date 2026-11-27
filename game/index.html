@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Gobble Dash — The Great Turkey Escape</title>
+<style>
+  /* Gobble Dash page shell: autumn dusk, the game canvas centred. */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #2b1808;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  #wrap {
+    width: min(960px, 96vw);
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 4px solid #e8c96a;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    background: #ffeec2;
+    cursor: pointer;
+  }
+  #hint {
+    color: #ffd9a0;
+    font-size: 14px;
+    text-align: center;
+  }
+  #hint b { color: #ffd23e; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="960" height="540" aria-label="Gobble Dash, a turkey escape game"></canvas>
+  <div id="hint">Gobble Dash — <b>← →</b> run &nbsp;·&nbsp; <b>SPACE</b> jump (twice to flap) &nbsp;·&nbsp; <b>↓</b> hide in the hay &nbsp;·&nbsp; <b>P</b> pause &nbsp;·&nbsp; <b>M</b> mute</div>
+</div>
+<script type="module">
+  import { createGame } from './src/main.js';
+  const canvas = document.getElementById('game');
+  createGame(canvas);
+</script>
+</body>
+</html>
